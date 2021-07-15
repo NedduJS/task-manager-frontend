@@ -1,36 +1,18 @@
 /* eslint-disable comma-dangle */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import AddIcon from '@material-ui/icons/Add';
-import AddButton from '../components/AddButton';
+import Header from '../components/Header';
+import Main from '../components/Main';
+import Footer from '../components/Footer';
 
-const getData = async () => {
-  try {
-    const response = await fetch(
-      'https://young-coast-17015.herokuapp.com/api/tasks/'
-    );
-    const data = response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+import '../assets/styles/Home.css';
 
 const Home = () => {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    setTasks(getData());
-  }, [tasks]);
-
   return (
     <div className='home'>
-      <h1 className='home__title'>Task Manager</h1>
-      {tasks.map((task) => {
-        return <h1>{task.title}</h1>;
-      })}
-      <AddButton startIcon={<AddIcon />}>Add Task</AddButton>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 };
