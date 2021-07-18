@@ -1,15 +1,22 @@
 /* eslint-disable comma-dangle */
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
 
+import { changeDisplayForm } from '../redux/tasks/taskActions';
+
 import '../assets/styles/Home.css';
 
-const Home = () => {
+const Home = ({ changeDisplayForm }) => {
+  const handleClick = () => {
+    changeDisplayForm('displayNone');
+  };
+
   return (
-    <div className='home'>
+    <div className='home' onClick={handleClick} role='presentation'>
       <Header />
       <Main />
       <Footer />
@@ -17,4 +24,8 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapDispatchToProps = {
+  changeDisplayForm,
+};
+
+export default connect(null, mapDispatchToProps)(Home);

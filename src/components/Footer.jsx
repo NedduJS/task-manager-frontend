@@ -1,17 +1,18 @@
 /* eslint-disable react/jsx-closing-bracket-location */
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import AddIcon from '@material-ui/icons/Add';
 import AddButton from './AddButton';
-import NewTask from './NewTask';
+
+import { changeDisplayForm } from '../redux/tasks/taskActions';
 
 import '../assets/styles/Footer.css';
 
-const Footer = () => {
-  const [display, setDisplay] = useState('displayNone');
-
-  const handleClick = () => {
-    setDisplay('display');
+const Footer = ({ changeDisplayForm }) => {
+  const handleClick = (e) => {
+    e.stopPropagation();
+    changeDisplayForm('display');
   };
 
   return (
@@ -22,9 +23,12 @@ const Footer = () => {
         onClick={handleClick}>
         Add Task
       </AddButton>
-      <NewTask display={display} />
     </div>
   );
 };
 
-export default Footer;
+const mapDispatchToProps = {
+  changeDisplayForm,
+};
+
+export default connect(null, mapDispatchToProps)(Footer);

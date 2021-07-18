@@ -1,9 +1,15 @@
 .newTask {
-  position: absolute;
+  width: 90%;
+  position: fixed;
   top: 50%;
-  right: 50vw;
+  right: 5%;
   padding: 1rem;
   border-radius: 1rem;
-  background-color: var(--darkBrand);
+  border: 2px solid #f50057;
+  border-radius: 0.5rem;
+  background-color: #3a3b3c;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
