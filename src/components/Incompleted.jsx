@@ -16,7 +16,7 @@ const Incompleted = ({ taskList }) => {
 };
 
 const mapStateToProps = ({ task }) => {
-  return { taskList: task.task };
+  return { taskList: task };
 };
 
 export default connect(mapStateToProps, null)(Incompleted);

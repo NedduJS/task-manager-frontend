@@ -17,15 +17,15 @@ const Main = ({ fetching, error }) => {
           <Completed />
         </>
       )}
-      {error && <h1>error</h1>}
+      {error && <h1>{error}</h1>}
     </div>
   );
 };
 
-const mapStateToProps = ({ task }) => {
+const mapStateToProps = ({ fetching, error }) => {
   return {
-    fetching: task.fetching,
-    error: task.error,
+    fetching,
+    error,
   };
 };
 

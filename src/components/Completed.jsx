@@ -8,7 +8,7 @@ const Completed = ({ taskList }) => {
 
   return (
     <div className='completed'>
-      <p>Completed</p>
+      <p className='completed_title'>Completed</p>
       {completedTask.map((item) => {
         return <TaskItem key={item.id} task={item} />;
       })}
@@ -17,7 +17,7 @@ const Completed = ({ taskList }) => {
 };
 
 const mapStateToProps = ({ task }) => {
-  return { taskList: task.task };
+  return { taskList: task };
 };
 
 export default connect(mapStateToProps, null)(Completed);

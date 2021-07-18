@@ -1,5 +1,12 @@
 /* eslint-disable comma-dangle */
-import { GET_TASKS, GET_TASKS_SUCCESS, GET_TASKS_ERROR } from './taskTypes';
+import {
+  GET_TASKS,
+  GET_TASKS_SUCCESS,
+  GET_TASKS_ERROR,
+  POST_TASK_SUCCESS,
+} from './taskTypes';
+
+const URL = 'https://piscine-mandarine-71814.herokuapp.com/api/tasks/';
 
 const getTasks = () => async (dispatch) => {
   dispatch({
@@ -7,9 +14,7 @@ const getTasks = () => async (dispatch) => {
   });
 
   try {
-    const response = await fetch(
-      'https://piscine-mandarine-71814.herokuapp.com/api/tasks/'
-    );
+    const response = await fetch(URL);
     const data = await response.json();
 
     dispatch({
@@ -24,4 +29,25 @@ const getTasks = () => async (dispatch) => {
   }
 };
 
-export { getTasks };
+const postTask = (newTask) => async (dispatch) => {
+  try {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newTask),
+    });
+    const data = await response.json();
+
+    dispatch({
+      type: POST_TASK_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_TASKS_ERROR,
+      payload: 'Ocurrió un error :(',
+    });
+  }
+};
+
+export { getTasks, postTask };

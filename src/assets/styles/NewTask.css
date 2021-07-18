@@ -1,0 +1,9 @@
+.newTask {
+  position: absolute;
+  top: 50%;
+  right: 50vw;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--darkBrand);
+  color: white;
+}
