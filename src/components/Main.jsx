@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Completed from './Completed';
 import Incompleted from './Incompleted';
 import NewTask from './NewTask';
+import Loader from './Loader';
 
 import '../assets/styles/Main.css';
 
@@ -11,7 +12,7 @@ const Main = ({ fetching, error }) => {
   return (
     <div className='main'>
       {fetching ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : (
         <>
           <Incompleted />

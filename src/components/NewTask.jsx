@@ -58,6 +58,7 @@ const NewTask = ({ newtaskForm, postTask, getTasks, changeDisplayForm }) => {
     await postTask(item);
     getTasks();
     changeDisplayForm('displayNone');
+    setTask('');
   };
 
   return (
@@ -65,7 +66,6 @@ const NewTask = ({ newtaskForm, postTask, getTasks, changeDisplayForm }) => {
       className={`newTask ${newtaskForm}`}
       onClick={handlePropagation}
       role='presentation'>
-      >
       <WhiteCheckbox checked={false} />
       <form action='submit'>
         <WhiteTextField
