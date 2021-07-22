@@ -7,9 +7,27 @@
   border-radius: 1rem;
   border: 2px solid #f50057;
   border-radius: 0.5rem;
-  background-color: #3a3b3c;
+  background-color: #ffffff;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 600px) {
+  .newTask {
+    height: 100px;
+    width: 50%;
+    right: 25%;
+  }
+
+  .form {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .newTask {
+    top: 12%;
+  }
 }

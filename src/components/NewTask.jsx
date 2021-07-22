@@ -16,22 +16,22 @@ import {
 
 import '../assets/styles/NewTask.css';
 
-const WhiteCheckbox = withStyles({
+const BlackCheckbox = withStyles({
   root: {
-    color: 'white',
+    color: 'black',
   },
 })(Checkbox);
 
 const WhiteTextField = withStyles({
   root: {
     '& label.Mui-unfocused': {
-      color: 'red',
+      color: 'black',
     },
     '& label.Mui-focused': {
-      color: 'white',
+      color: 'black',
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: 'white',
+      borderBottomColor: 'black',
     },
   },
 })(TextField);
@@ -66,24 +66,20 @@ const NewTask = ({ newtaskForm, postTask, getTasks, changeDisplayForm }) => {
       className={`newTask ${newtaskForm}`}
       onClick={handlePropagation}
       role='presentation'>
-      <WhiteCheckbox checked={false} />
-      <form action='submit'>
+      <BlackCheckbox checked={false} />
+      <form action='submit' className='form'>
         <WhiteTextField
           id='standard-basic'
           label='Add a task'
           value={task}
           onChange={handleChange}
           inputProps={{ style: { fontSize: '1.5rem' } }}
-          required={true}
-          isRequired='true'
+          fullWidth
         />
-        <IconButton
-          color='secondary'
-          aria-label='add a task'
-          onClick={handleClick}>
-          <PublishIcon />
-        </IconButton>
       </form>
+      <IconButton color='secondary' onClick={handleClick}>
+        <PublishIcon />
+      </IconButton>
     </div>
   );
 };

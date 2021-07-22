@@ -6,3 +6,9 @@
   background-color: var(--brandColor);
   color: white;
 }
+
+@media (min-width: 600px) {
+  .header__title {
+    font-size: 4rem;
+  }
+}

@@ -7,19 +7,32 @@ import Main from '../components/Main';
 import Footer from '../components/Footer';
 
 import { changeDisplayForm } from '../redux/tasks/taskActions';
+import useWindowDimensions from '../utils/useWindowDimensions';
 
 import '../assets/styles/Home.css';
 
 const Home = ({ changeDisplayForm }) => {
+  const { width } = useWindowDimensions();
+
   const handleClick = () => {
     changeDisplayForm('displayNone');
   };
 
   return (
     <div className='home' onClick={handleClick} role='presentation'>
-      <Header />
-      <Main />
-      <Footer />
+      {width < 1024 ? (
+        <>
+          <Header />
+          <Main />
+          <Footer />
+        </>
+      ) : (
+        <>
+          <Header />
+          <Footer />
+          <Main />
+        </>
+      )}
     </div>
   );
 };

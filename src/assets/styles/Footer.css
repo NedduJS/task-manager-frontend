@@ -12,3 +12,9 @@
 .display {
   display: flex;
 }
+
+@media (min-width: 1024px) {
+  .footer {
+    margin: 2rem 10vw 2rem 0;
+  }
+}
